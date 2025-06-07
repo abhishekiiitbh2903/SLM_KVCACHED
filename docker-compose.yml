@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: slm-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./model:/app/model  # Ensure model weights are mounted
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    container_name: slm-ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+    restart: unless-stopped
