@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from typing import List
 
-API_URL = "http://localhost:8000/predict"
+API_URL = "http://slm-api:8000/predict"
 
 st.set_page_config(page_title="SLM Playground", layout="wide")
 

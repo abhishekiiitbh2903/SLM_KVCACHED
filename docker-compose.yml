@@ -9,7 +9,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./model:/app/model  # Ensure model weights are mounted
+      - ./model:/app/model  
     restart: unless-stopped
 
   ui:
